@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Награды</title>
+    <title>Магазин</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/store.css">
 </head>
@@ -12,10 +12,17 @@
 <body>
     <?php
     include './share/navbar.php';
+    if (isset($_POST['buy_product'])) {
+        $product_name = $_POST['product_name'];
+        $product_points = $_POST['product_points'];
+
+        // Здесь обработайте покупку (например, списание баллов и т. д.)
+
+        header("Location: store.php?purchase_success=1&product_name=" . urlencode($product_name) . "&product_points=" . $product_points);  // предполагается, что это текущий файл
+        exit();
+    }
 
     ?>
-
-
 
     <div class="store-page">
         <h1 class="store-header">Магазин баллов</h1>
@@ -87,14 +94,15 @@
             document.getElementById('modalWindow').style.display = 'flex';
         }
 
-        <?php
-        if (isset($_POST['buy_product'])) {
-            $product_name = $_POST['product_name'];
-            $product_points = $_POST['product_points'];
-            echo "openModal('Товар \"$product_name\" куплен за $product_points баллов!');";
-            header("Location: consultation.php");
-            exit();
+        const urlParams = new URLSearchParams(window.location.search);
+        const purchaseSuccess = urlParams.get('purchase_success');
+        const productName = urlParams.get('product_name');
+        const productPoints = urlParams.get('product_points');
+
+        if (purchaseSuccess === '1') {
+            openModal(`Товар "${productName}" куплен за ${productPoints} баллов!`);
+            history.pushState(null, null, window.location.pathname);
         }
-        ?>
     </script>
+
 </body>
