@@ -1,0 +1,49 @@
+/* Основной стиль для FAQ раздела */
+.faq-container {
+    max-width: 800px;
+    margin: 50px auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+    transition: background-color 0.3s ease;
+}
+
+.faq-item:hover {
+    background-color: #f9f9f9;
+}
+
+.faq-question {
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 15px;
+    color: #666;
+}
+
+.faq-question i {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(90deg);
+}
+
+/* Если вы используете иконки, например, из Font Awesome */
+.faq-question .icon {
+    margin-left: 15px;
+}
