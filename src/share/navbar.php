@@ -7,16 +7,18 @@
 </head>
 <body>
     <header class="header">
-        <img src="./share/logo-header.svg" alt="Логотип" class="logo">
+        <a href="./index.php">
+            <img src="./share/logo-header.svg" alt="Логотип" class="logo">
+        </a>
         <div class="buttons">
-            <a href="#" class="button">Кнопка 1</a>
-            <a href="#" class="button">Кнопка 2</a>
-            <a href="#" class="button">Кнопка 3</a>
-            <a href="#" class="button">Кнопка 4</a>
+            <a href="./consultation.php" class="button">Запись</a>
+			<a href="./address.php" class="button">Наши адреса</a>
+            <a href="./awards.php" class="button">Награды</a>
+            <a href="./store.php" class="button">Магазин</a>
         </div>
 		<div class="bbuttons">
-        <a href="#" class="button blue-button">Синяя кнопка 1</a>
-        <a href="#" class="button blue-button">Синяя кнопка 2</a>
+        <a href="./registration.php" class="button blue-button">Вход/Регистрация</a>
+        <a href="./help.php" class="button blue-button">Хочу помочь</a>
 		</div>
     </header>
 </body>
