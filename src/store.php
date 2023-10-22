@@ -41,7 +41,23 @@
                     <div class="product-title">Скидка на мерч в магазине ProСпорт40</div>
                     <p>Что может быть лучше?</p>
                     <div class="product-points">100 баллов</div>
-                    <input type="hidden" name="product_name" value="Скидка в Спортмастер">
+                    <input type="hidden" name="product_name" value="Скидка на мерч в магазине ProСпорт40">
+                    <input type="hidden" name="product_points" value="100">
+                    <button type="submit" class="buy-button" name="buy_product" onclick="checkAuthorization(event, 100)">Купить</button>
+                </div>
+            </div>
+        </form>
+
+        <form method="post">
+            <div class="product">
+                <div class="product-image">
+                    <img src="./share/bottle.jpg" alt="Product 1">
+                </div>
+                <div class="product-description">
+                    <div class="product-title">Бутылка</div>
+                    <p>Бутылка</p>
+                    <div class="product-points">100 баллов</div>
+                    <input type="hidden" name="product_name" value="Бутылка">
                     <input type="hidden" name="product_points" value="100">
                     <button type="submit" class="buy-button" name="buy_product" onclick="checkAuthorization(event, 100)">Купить</button>
                 </div>
@@ -67,18 +83,51 @@
         <form method="post">
             <div class="product">
                 <div class="product-image">
-                    <img src="./share/marathon.png" alt="Product 3">
+                    <img src="./share/tShirt.jpg" alt="Product 3">
                 </div>
                 <div class="product-description">
-                    <div class="product-title">Билет на марафон</div>
-                    <p>Марафоны - это здорово! Приходи!</p>
+                    <div class="product-title">Футболка</div>
+                    <p>Прикольная футболка</p>
                     <div class="product-points">300 баллов</div>
-                    <input type="hidden" name="product_name" value="Билет на марафон">
+                    <input type="hidden" name="product_name" value="Футболка">
                     <input type="hidden" name="product_points" value="300">
                     <button type="submit" class="buy-button" name="buy_product" onclick="checkAuthorization(event, 300)">Купить</button>
                 </div>
             </div>
         </form>
+
+        <form method="post">
+            <div class="product">
+                <div class="product-image">
+                    <img src="./share/marathon.png" alt="Product 3">
+                </div>
+                <div class="product-description">
+                    <div class="product-title">Билет на марафон</div>
+                    <p>Марафоны - это здорово! Приходи!</p>
+                    <div class="product-points">399 баллов</div>
+                    <input type="hidden" name="product_name" value="Билет на марафон">
+                    <input type="hidden" name="product_points" value="399">
+                    <button type="submit" class="buy-button" name="buy_product" onclick="checkAuthorization(event, 399)">Купить</button>
+                </div>
+            </div>
+        </form>
+
+        <form method="post">
+            <div class="product">
+                <div class="product-image">
+                    <img src="./share/theatre.jpg" alt="Product 3">
+                </div>
+                <div class="product-description">
+                    <div class="product-title">Билет в театр</div>
+                    <p>Спорт это хорошо, но просвещаться тоже не забываем!</p>
+                    <div class="product-points">399 баллов</div>
+                    <input type="hidden" name="product_name" value="Билет в театр">
+                    <input type="hidden" name="product_points" value="399">
+                    <button type="submit" class="buy-button" name="buy_product" onclick="checkAuthorization(event, 399)">Купить</button>
+                </div>
+            </div>
+        </form>
+
     </div>
 
     <!-- Модальное окно -->
