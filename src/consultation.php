@@ -35,8 +35,8 @@ if (isset($_POST['appointmentForm'])) {
     //add in database
 }
 
-echo generateDoctorCard("Доктор Попов", "лучший", "./share/POPOV.jpg");
-echo generateDoctorCard("Доктор Press F", "худший", "./share/KOT1.jpg");
+echo generateDoctorCards("./share/POPOV.jpg");
+//echo generateDoctorCard("Доктор Press F", "худший", "./share/KOT1.jpg");
 ?>
 
 <div class="modal-background">

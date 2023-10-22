@@ -1,17 +1,36 @@
 <?php
+include("db_functions.php");
 
-function generateDoctorCard($doctorName, $description, $photoPath) {
-    return '
-    <div class="doctor-card">
-        <img src="' . htmlspecialchars($photoPath) . '" alt="Фото доктора ' . htmlspecialchars($doctorName) . '" class="doctor-photo">
-        <div class="doctor-info">
-            <h2>' . htmlspecialchars($doctorName) . '</h2>
-            <p>' . htmlspecialchars($description) . '</p>
-            <button class="appointment-btn" data-doctor="' . htmlspecialchars($doctorName) . '">Записаться на консультацию</button>
+function generateDoctorCards($photoPathTemplate) {
+    $conn = db_connect();
+
+    $stmt = $conn->prepare("SELECT fio, info FROM doctors");
+    $stmt->execute();
+
+    $doctorData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $cards = '';
+    foreach ($doctorData as $doctor) {
+        $doctorName = $doctor['fio'];
+        $description = $doctor['info'];
+        $photoPath = sprintf($photoPathTemplate, $doctorName);
+
+        $cards .= '
+        <div class="doctor-card">
+            <img src="' . htmlspecialchars($photoPath) . '" alt="Фото доктора ' . htmlspecialchars($doctorName) . '" class="doctor-photo">
+            <div class="doctor-info">
+                <h2>' . htmlspecialchars($doctorName) . '</h2>
+                <p>' . htmlspecialchars($description) . '</p>
+                <button class="appointment-btn" data-doctor="' . htmlspecialchars($doctorName) . '">Записаться на консультацию</button>
+            </div>
         </div>
-    </div>
-    ';
+        ';
+    }
+    db_close_connection($conn);
+    return $cards;
 }
+
+
 
 function generateAppointmentForm() {
     $timeOptions = getTimeOptions();
@@ -30,9 +49,16 @@ function generateAppointmentForm() {
     ';
 }
 
+
 function getTimeOptions() {
-    // статический массив временных интервалов для демонстрации
-    $times = ["09:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00"];
+    // Подключение к базе данных
+    $conn = db_connect();
+
+    $query = "SELECT graphic FROM doctors";
+    $statement = $conn->prepare($query);
+    $statement->execute();
+    
+    $times = $statement->fetchAll(PDO::FETCH_COLUMN);
 
     $options = "";
     foreach ($times as $time) {
@@ -41,25 +67,6 @@ function getTimeOptions() {
 
     return $options;
 }
-
-
-// function getTimeOptions() {
-//     // Подключение к базе данных
-//     $connection = new PDO("mysql:host=your_host;dbname=your_dbname", "username", "password");
-
-//     $query = "SELECT time FROM available_times";  // Измените это на ваш запрос к БД
-//     $statement = $connection->prepare($query);
-//     $statement->execute();
-    
-//     $times = $statement->fetchAll(PDO::FETCH_COLUMN);
-
-//     $options = "";
-//     foreach ($times as $time) {
-//         $options .= "<option value='{$time}'>{$time}</option>";
-//     }
-
-//     return $options;
-// }
 
 
 function addAnAppointment(){
