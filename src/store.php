@@ -35,11 +35,11 @@
         <form method="post">
             <div class="product">
                 <div class="product-image">
-                    <img src="./share/sportmasterLogo.jpg" alt="Product 1">
+                    <img src="./share/proSport40.jpg" alt="Product 1">
                 </div>
                 <div class="product-description">
-                    <div class="product-title">Скидка в Спортмастер</div>
-                    <p>Скидка 5 % на что-то</p>
+                    <div class="product-title">Скидка на мерч в магазине ProСпорт40</div>
+                    <p>Что может быть лучше?</p>
                     <div class="product-points">100 баллов</div>
                     <input type="hidden" name="product_name" value="Скидка в Спортмастер">
                     <input type="hidden" name="product_points" value="100">
@@ -71,7 +71,7 @@
                 </div>
                 <div class="product-description">
                     <div class="product-title">Билет на марафон</div>
-                    <p>Классный марафон! Приходи!</p>
+                    <p>Марафоны - это здорово! Приходи!</p>
                     <div class="product-points">300 баллов</div>
                     <input type="hidden" name="product_name" value="Билет на марафон">
                     <input type="hidden" name="product_points" value="300">
