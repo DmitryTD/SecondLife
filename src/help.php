@@ -46,7 +46,7 @@
     </div>
     <h1>Хочу помочь</h1>
     <div class="image-container">
-        <img src="./share/qr.jpg" alt="Оплата" style="width: 400px; height: auto;">
+        <img src="./share/qr.png" alt="Оплата" style="width: 400px; height: auto;">
         <div class="image-description">
             <p>Для оплаты отсканируйте QR-код в мобильном приложении банка или штатной камерой телефона</p>
         </div>
