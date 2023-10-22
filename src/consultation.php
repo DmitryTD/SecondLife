@@ -17,19 +17,6 @@ if (isset($_POST['appointmentForm'])) {
     //addAnAppointment();
     header("Location: consultation.php");
     exit();
-
-
-// имя доктора (через id)
-// фио пользователя
-// тел пользователя
-// доступные даты
-// 
-
-
-    //echo $appointmentTime;
-    //die("darova");
-
-    //add in database
 }
 
 echo generateDoctorCards("./share/POPOV.jpg");

@@ -32,7 +32,7 @@
     include './share/navbar.php';
     ?>
 
-    <h2>Скачайте наши Чек-листы для здорвья совершенно бесплатно!</h2>
+    <h2>Скачайте наши Чек-листы для здоровья совершенно бесплатно!</h2>
 
     <div class="image-container">
       <img class="image" src="./share/365_beauty.jpg" alt="Изображение 1">

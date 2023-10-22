@@ -1,0 +1,46 @@
+/* Стиль для общего контейнера истории */
+.story-container {
+    display: flex; 
+    align-items: start;
+    justify-content: space-between; 
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #f7f7f7;
+}
+
+/* Стиль для блока фотографии */
+.story-photo {
+    width: 325px; 
+    height: 500px;
+    border-radius: 5px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+/* Стиль для блока с текстом истории */
+.story-content {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* Стиль для заголовка истории */
+.story-quote {
+    font-style: italic;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Стиль для основного текста истории */
+.story-text {
+    color: black;
+}
+
+.story-text-container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: start; 
+}
