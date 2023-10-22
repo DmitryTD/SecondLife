@@ -1,0 +1,22 @@
+.image-container {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    margin-right: 45px; /* Отступ между изображениями (можно изменить) */
+    margin-left: 45px;
+  }
+  .image {
+    width: auto; /* Размер изображения */
+    height: 700px;
+    margin: 10px; /* Отступ внутри контейнера */
+  }
+  h2 {
+    text-align: center; /* Выравниваем текст по центру */
+  }
+  .button-container {
+    text-align: center; /* Выравниваем кнопки по центру */
+    margin-top: 20px; /* Отступ между изображениями и кнопками */
+  }
+  .button1 {
+    margin: 230px; /* Отступ между кнопками */
+  }

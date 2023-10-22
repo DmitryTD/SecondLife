@@ -1,39 +1,11 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/index.css">
 <?php
 include './share/navbar.php';
 ?>
-    <style>
-        h1 {
-            font-size: 36px;
-            margin: 0;
-        }
-        section {
-            padding: 20px;
-        }
-        h2 {
-            font-size: 24px;
-            color: #0073e6;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        a {
-            text-decoration: none;
-            color: #0073e6;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            background-color: #0073e6;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+
 <body>
     <section id="intro">
         <h2>Донорство костного мозга</h2>
@@ -51,6 +23,7 @@ include './share/navbar.php';
         <p>Стать донором костного мозга - это не только шанс спасти жизнь, но и общественный поступок. Когда вы становитесь донором, вы помогаете не только одному человеку, но и всему обществу. Доноры костного мозга - это люди, которые готовы помочь другим, даже если они никогда не встречались с больным. Это поступок, который может изменить мир к лучшему.</p>
         <p>Стать донором костного мозга - это также шанс для личностного роста. Это поступок, который требует от человека мужества, ответственности и желания помочь другим. Когда вы становитесь донором, вы понимаете, что вы можете изменить жизнь другого человека. Это может стать для вас настоящим открытием и помочь вам стать лучше.</p>
     </section>
-	<img src="./share/img-o-fonde.png" alt="Изображение на фоне" style="width: 100%">
+    <img src="./share/img-o-fonde.png" alt="Изображение на фоне" style="width: 100%">
 </body>
+
 </html>

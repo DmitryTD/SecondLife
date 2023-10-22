@@ -1,0 +1,28 @@
+h1 {
+    font-size: 36px;
+    margin: 0;
+}
+section {
+    padding: 20px;
+}
+h2 {
+    font-size: 24px;
+    color: #0073e6;
+}
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: #0073e6;
+}
+a:hover {
+    text-decoration: underline;
+}
+footer {
+    background-color: #0073e6;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

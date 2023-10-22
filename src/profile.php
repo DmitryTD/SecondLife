@@ -16,9 +16,8 @@ include './share/navbar.php';
         <li>Email: <?php echo $_SESSION['user']; ?></li>
         <li>Дата последней сдачи КМ: 14.09.2023</li>
         <li>Дата последующей возможной сдачи: 14.01.2024*</li>
-		<li>*Обязательно проконсультируйтесь у врача!</li>
+        <li>*Обязательно проконсультируйтесь у врача!</li>
     </ul>
     <br>
     <p><a href="./logout.php" class="button blue-button">Выйти</a></p>
 </div>
-
