@@ -15,6 +15,7 @@
 			<a href="./address.php" class="button">Наши адреса</a>
             <a href="./awards.php" class="button">Награды</a>
             <a href="./store.php" class="button">Магазин</a>
+			<a href="./chek.php" class="button">Чек-листы</a>
         </div>
 		<div class="bbuttons">
         <a href="./registration.php" class="button blue-button">Профиль</a>
