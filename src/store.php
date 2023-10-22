@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -12,6 +14,9 @@
 <body>
     <?php
     include './share/navbar.php';
+    include './libs/libstore.php';
+    $userBalance = getUserBalance();
+
     if (isset($_POST['buy_product'])) {
         $product_name = $_POST['product_name'];
         $product_points = $_POST['product_points'];
@@ -38,7 +43,7 @@
                     <div class="product-points">100 баллов</div>
                     <input type="hidden" name="product_name" value="Скидка в Спортмастер">
                     <input type="hidden" name="product_points" value="100">
-                    <button type="submit" class="buy-button" name="buy_product">Купить</button>
+                    <button type="submit" class="buy-button" name="buy_product" onclick="checkAuthorization(event, 100)">Купить</button>
                 </div>
             </div>
         </form>
@@ -54,7 +59,7 @@
                     <div class="product-points">200 баллов</div>
                     <input type="hidden" name="product_name" value="Классная кепка">
                     <input type="hidden" name="product_points" value="200">
-                    <button type="submit" class="buy-button" name="buy_product">Купить</button>
+                    <button type="submit" class="buy-button" name="buy_product" onclick="checkAuthorization(event, 200)">Купить</button>
                 </div>
             </div>
         </form>
@@ -70,7 +75,7 @@
                     <div class="product-points">300 баллов</div>
                     <input type="hidden" name="product_name" value="Билет на марафон">
                     <input type="hidden" name="product_points" value="300">
-                    <button type="submit" class="buy-button" name="buy_product">Купить</button>
+                    <button type="submit" class="buy-button" name="buy_product" onclick="checkAuthorization(event, 300)">Купить</button>
                 </div>
             </div>
         </form>
@@ -104,5 +109,21 @@
             history.pushState(null, null, window.location.pathname);
         }
     </script>
+
+    <script>
+        function checkAuthorization(event, productPoints) {
+            <?php if (!isset($_SESSION['user'])) : ?>
+                event.preventDefault();
+                openModal('Пожалуйста, авторизуйтесь перед покупкой.');
+            <?php else : ?>
+                let userBalance = <?= $userBalance; ?>;
+                if (userBalance < productPoints) {
+                    event.preventDefault();
+                    openModal('У вас недостаточно баллов для покупки этого продукта \n Ваш баланс: ' + userBalance + ' баллов.');
+                }
+            <?php endif; ?>
+        }
+    </script>
+
 
 </body>
