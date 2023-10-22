@@ -11,7 +11,7 @@ if (isset($_GET['chat_id'])) {
 
 $messageData = [
     "chat_id" => $chatId,
-    "text" => "Привет, сегодня твоя кровь спасла человека! Гордись собой, ты молодец ;)"
+    "text" => "Привет, сегодня твой смелый поступок спас человека! Гордись собой, ты молодец ;)"
 ];
 
 $telegramApiUrl = "https://api.telegram.org/bot$botToken/sendMessage";
