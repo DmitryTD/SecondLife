@@ -9,7 +9,7 @@
     <style>
         /* Your existing styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: sans-serif;
             background-color: #f0f0f0;
             text-align: center;
         }
@@ -80,7 +80,12 @@
                     if (trim($password) === trim($row['password'])) {
                         // Вход выполнен успешно
                         $_SESSION['user'] = $row['email']; // Сохраняем email пользователя в сессии
+						$_SESSION['level'] = $row['level'];
+						$_SESSION['fio'] = $row['fio'];
+						$_SESSION['phone'] = $row['phonenumber'];
+						$_SESSION['balance'] = $row['balance'];
                         echo 'Вход выполнен успешно!';
+						header("Location: registration.php");
                         exit;
                     } else {
                         echo 'Неправильное имя пользователя или пароль';
@@ -98,7 +103,7 @@
                 $fio = $_POST['fio'];
 
                 // Выполнение запроса для вставки нового пользователя в таблицу
-                $stmt = $db->prepare('INSERT INTO Users (email, password, phonenumber, fio, level) VALUES (?, ?, ?, ?, 1)');
+                $stmt = $db->prepare('INSERT INTO Users (email, password, phonenumber, fio, level, balance) VALUES (?, ?, ?, ?, 1, 0)');
                 if ($stmt->execute([$newemail, $newPassword, $phone, $fio])) {
                     echo 'Регистрация успешно завершена. Теперь вы можете войти.';
                 } else {
@@ -109,9 +114,16 @@
 
         if (isset($_SESSION['user'])) {
             // User is already authenticated
-            echo '<h1>Привет, ' . $_SESSION['user'] . '!</h1>';
-            echo '<p><a href="logout.php" class="button blue-button">Выйти</a></p>';
-        } else {
+            echo '<h1>Привет, ' . $_SESSION['fio'] . '!</h1>';
+            echo '<h2>Твой уровень в программе: ' . $_SESSION['level'] . '!</h2>';
+			echo '<h2>Твои бонусы: ' . $_SESSION['balance'] . '!</h2>';
+			echo '<h2>Номер телефона: ' . $_SESSION['phone'] . '!</h2>';
+			echo '<h2>Email: ' . $_SESSION['user'] . '!</h2>';
+			echo '<h3>Дата последней сдачи КМ: 14.09.2023</h3>';
+			echo '<h3>Дата последующей возможной сдачи: 14.01.2024!</h3>';
+			
+		echo '<p><a href="./logout.php" class="button blue-button">Выйти</a></p>';
+		} else {
             // User is not authenticated, display login and registration forms
             echo '<h1>Вход</h1>';
             echo '<form action="" method="post">

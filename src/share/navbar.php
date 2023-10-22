@@ -17,7 +17,7 @@
             <a href="./store.php" class="button">Магазин</a>
         </div>
 		<div class="bbuttons">
-        <a href="./registration.php" class="button blue-button">Вход/Регистрация</a>
+        <a href="./registration.php" class="button blue-button">Профиль</a>
         <a href="./help.php" class="button blue-button">Хочу помочь</a>
 		</div>
     </header>
