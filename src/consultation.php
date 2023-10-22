@@ -25,10 +25,7 @@ if (isset($_POST['appointmentForm'])) {
 // доступные даты
 // 
 
-    // $doctorName = $_POST["doctorName"];
-    // $clientName = $_POST["clientName"];
-    // $clientPhone = $_POST["clientPhone"];
-    //$appointmentTime = $_POST["appointmentTime"];
+
     //echo $appointmentTime;
     //die("darova");
 

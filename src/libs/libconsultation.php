@@ -1,7 +1,8 @@
 <?php
 include("db_functions.php");
 
-function generateDoctorCards($photoPathTemplate) {
+function generateDoctorCards($photoPathTemplate)
+{
     $conn = db_connect();
 
     $stmt = $conn->prepare("SELECT fio, info FROM doctors");
@@ -32,7 +33,8 @@ function generateDoctorCards($photoPathTemplate) {
 
 
 
-function generateAppointmentForm() {
+function generateAppointmentForm()
+{
     $timeOptions = getTimeOptions();
 
     return '
@@ -50,14 +52,15 @@ function generateAppointmentForm() {
 }
 
 
-function getTimeOptions() {
+function getTimeOptions()
+{
     // Подключение к базе данных
     $conn = db_connect();
 
     $query = "SELECT graphic FROM doctors";
     $statement = $conn->prepare($query);
     $statement->execute();
-    
+
     $times = $statement->fetchAll(PDO::FETCH_COLUMN);
 
     $options = "";
@@ -68,43 +71,79 @@ function getTimeOptions() {
     return $options;
 }
 
+/*
+function addAnAppointment()
+{
+    $conn = db_connect();
 
-function addAnAppointment(){
-    
+    $doctorName = $_POST["doctorName"];
+    $clientName = $_POST["clientName"];
+    $clientPhone = $_POST["clientPhone"];
+    $appointmentTime = $_POST["appointmentTime"];
+
+    $stmt = $conn->prepare("SELECT MAX(recordid) as maxId FROM records");
+    $stmt->execute();
+    $result = $stmt->fetch();
+    $recordId = $result['maxId'] + 1;
+
+    // Получить doctorid по имени врача
+    $stmt = $conn->prepare("SELECT doctorid FROM doctors WHERE fio = ?");
+    $stmt->execute([$doctorName]);
+    $result = $stmt->fetch();
+
+    if ($result) {
+        $doctorId = $result["doctorid"];
+
+        echo $recordId . "\n";
+        echo $doctorId . "\n";
+        echo $clientName . "\n";
+        echo $clientPhone . "\n";
+        echo $appointmentTime . "\n";
+
+
+        // Занести данные в таблицу records
+        $insertStmt = $conn->prepare("INSERT INTO records (recordid, doctorid, fio_client,  clientphonenumber,  data) VALUES (?, ?, ?, ?, ?)");
+        $insertStmt->execute([$recordId, $doctorId, $clientName, $clientPhone, $appointmentTime]);
+
+        if ($insertStmt->rowCount() == 0) {
+            echo $insertStmt->errorInfo()[2];
+            print_r($stmt->errorInfo());
+            echo "Ошибка при добавлении записи";
+        }
+    } else {
+        echo "Доктор с таким именем не найден";
+    }
+
+    db_close_connection($conn);
 }
+*/
+
 
 ?>
 
 
 
 <script>
+    function initAppointmentForm() {
+        $('.appointment-btn').on('click', function() {
+            const doctorName = $(this).data('doctor');
+            $('#appointmentForm h2').text('Форма записи к ' + doctorName);
+            $('#doctorName').val(doctorName);
+            $('.modal-background').fadeIn();
+            $('.appointment-form').show();
+        });
 
-function initAppointmentForm() {
-    $('.appointment-btn').on('click', function() {
-        const doctorName = $(this).data('doctor');
-        $('#appointmentForm h2').text('Форма записи к ' + doctorName);
-        $('#doctorName').val(doctorName);
-        $('.modal-background').fadeIn();
-        $('.appointment-form').show();
-    });
+        // При отправке формы
+        $("#appointmentForm").on("submit", function() {
+            // Устанавливаем атрибут action в зависимости от имени формы
+            if ($(this).attr("name") === "appointmentForm") {}
+        });
 
-    // При отправке формы
-    $("#appointmentForm").on("submit", function() {
-        // Устанавливаем атрибут action в зависимости от имени формы
-        if ($(this).attr("name") === "appointmentForm") {
-        }
-    });
-
-    // Закрыть модальное окно при клике вне формы
-    $('.modal-background').on('click', function(e) {
-        if (e.target !== this) return;
-        $(this).fadeOut();
-        $('.appointment-form').hide();
-    });
-}
-
-
+        // Закрыть модальное окно при клике вне формы
+        $('.modal-background').on('click', function(e) {
+            if (e.target !== this) return;
+            $(this).fadeOut();
+            $('.appointment-form').hide();
+        });
+    }
 </script>
-
-
-
